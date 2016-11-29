@@ -1,0 +1,28 @@
+{
+  "intents": [
+    {
+      "intent": "GetNewFactIntent",
+      "slots": [
+        {
+          "name": "NameOne",
+          "type": "AMAZON.US_FIRST_NAME"
+        },
+        {
+          "name": "NameTwo",
+          "type": "AMAZON.US_FIRST_NAME"
+        },
+        {
+          "name": "NameThree",
+          "type": "AMAZON.US_FIRST_NAME"
+        },
+        {
+          "name": "NameFour",
+          "type": "AMAZON.US_FIRST_NAME"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    }
+  ]
+}

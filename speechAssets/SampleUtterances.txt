@@ -1,0 +1,4 @@
+GetNewFactIntent who's turn is it
+GetNewFactIntent who's turn is it {NameOne} or {NameTwo}
+GetNewFactIntent who's turn is it {NameOne} {NameTwo} or {NameThree}
+GetNewFactIntent who's turn is it {NameOne} {NameTwo} {NameThree} or {NameFour}
