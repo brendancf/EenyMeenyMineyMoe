@@ -1,7 +1,7 @@
 {
   "intents": [
     {
-      "intent": "GetNewFactIntent",
+      "intent": "ChooseName",
       "slots": [
         {
           "name": "NameOne",

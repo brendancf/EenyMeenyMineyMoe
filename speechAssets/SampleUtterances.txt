@@ -1,4 +1,7 @@
-GetNewFactIntent who's turn is it
-GetNewFactIntent who's turn is it {NameOne} or {NameTwo}
-GetNewFactIntent who's turn is it {NameOne} {NameTwo} or {NameThree}
-GetNewFactIntent who's turn is it {NameOne} {NameTwo} {NameThree} or {NameFour}
+ChooseName who's turn is it
+ChooseName who's turn is it {NameOne} or {NameTwo}
+ChooseName who's turn is it {NameOne} {NameTwo} or {NameThree}
+ChooseName who's turn is it {NameOne} {NameTwo} {NameThree} or {NameFour}
+ChooseName is it {NameOne} or {NameTwo} turn
+ChooseName is it {NameOne} {NameTwo} or {NameThree} turn
+ChooseName is it {NameOne} {NameTwo} {NameThree} or {NameFour} turn

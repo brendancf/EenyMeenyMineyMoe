@@ -32,7 +32,7 @@ const languageStrings = {
     'en-US': {
         translation: {
             SKILL_NAME: 'Eeny, meeny, miney, moe',
-            HELP_MESSAGE: 'Brendan needs to implement help still',
+            HELP_MESSAGE: "Let fate decide who's turn it is, ask eeny meey to decide!",
             HELP_REPROMPT: 'What can I help you with?',
             STOP_MESSAGE: 'Goodbye!',
         },
@@ -62,8 +62,8 @@ EenyMeeny.prototype.eventHandlers.onSessionStarted = function (sessionStartedReq
 
 EenyMeeny.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
     console.log("EenyMeeny onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
-    var speechOutput = "Welcome to the Alexa Skills Kit, you can say hello";
-    var repromptText = "You can say hello";
+    var speechOutput = "Welcome to eeny meeny miney mo. You can say 'Who's turn is it John or Sarah'";
+    var repromptText = "You can say 'Who's turn is it John or Sarah'";
     response.ask(speechOutput, repromptText);
 };
 
@@ -75,19 +75,17 @@ EenyMeeny.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest
 
 EenyMeeny.prototype.intentHandlers = {
     // register custom intent handlers
-    "HelloWorldIntent": function (intent, session, response) {
-        response.tellWithCard("Hello World!", "Hello World", "Hello World!");
-    },
 
     'GetNewFactIntent': function (intent, session, response) {
         chooseEntity(intent, session, response);
     },
 
-    'Choose': function (intent, session, response) {
+    'ChooseName': function (intent, session, response) {
+        chooseEntity(intent, session, response);
     },
 
     "AMAZON.HelpIntent": function (intent, session, response) {
-        response.ask("You can say hello to me!", "You can say hello to me!");
+        response.ask("You can say 'Who's turn is it John or Sarah'", "You can say 'Who's turn is it John or Sarah'");
     }
 };
 
