@@ -32,7 +32,7 @@ const languageStrings = {
     'en-US': {
         translation: {
             SKILL_NAME: 'Eeny, meeny, miney, moe',
-            HELP_MESSAGE: "Let fate decide who's turn it is, ask eeny meey to decide!",
+            HELP_MESSAGE: "Let fate decide who's turn it is, ask eeny meeny to decide!",
             HELP_REPROMPT: 'What can I help you with?',
             STOP_MESSAGE: 'Goodbye!',
         },
@@ -98,7 +98,15 @@ function chooseEntity(intent, session, response) {
     for (var i=0; i < peopleSlots.length; ++i) {
         var nameSlot = intent.slots[peopleSlots[i]];
         if (nameSlot && nameSlot.value) {
-            people.push(nameSlot.value)
+            var name = nameSlot.value;
+
+            console.log(name);
+
+            if (name.endsWith("s")) {
+                name = name.substr(0, name.length - 2);
+            }
+
+            people.push(name);
         }
     }
 
@@ -115,7 +123,12 @@ function chooseEntity(intent, session, response) {
     const randomPerson = people[personIndex];
 
     // Create speech output
-    const output = "It's " + randomPerson + "'s turn";
+    var possessiveName = randomPerson;
+    if (!possessiveName.endsWith('s')) {
+        possessiveName += "'s";
+    }
+
+    const output = "It's " + possessiveName + " turn";
     response.tellWithCard(output, "Eeny, meeny, miney, moe", output);
 }
 
@@ -125,4 +138,3 @@ exports.handler = function (event, context) {
     var eenyMeeny = new EenyMeeny();
     eenyMeeny.execute(event, context);
 };
-
