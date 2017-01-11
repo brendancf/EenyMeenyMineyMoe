@@ -85,10 +85,13 @@ EenyMeeny.prototype.intentHandlers = {
     },
 
     "AMAZON.HelpIntent": function (intent, session, response) {
-        response.ask("You can say 'Who's turn is it John or Sarah'", "You can say 'Who's turn is it John or Sarah'");
+        giveExample(intent, session, response);
     }
 };
 
+function giveExample(intent, sessions, response) {
+    response.ask("You can say 'Who's turn is it John or Sarah'", "You can say 'Who's turn is it John or Sarah'");
+}
 
 function chooseEntity(intent, session, response) {
 
@@ -111,12 +114,8 @@ function chooseEntity(intent, session, response) {
     }
 
     if (people.length == 0) {
-        people = [
-            'Sierra',
-            'Teddy',
-            'Mom',
-            'Dad'
-        ];
+        giveExample(intent, session, response);
+        return;
     }
 
     const personIndex = Math.floor(Math.random() * people.length);
