@@ -37,3 +37,9 @@ else
    echo "Creating new alias $alias for Lambda $lambda_name"
    aws lambda create-alias --function-name $lambda_name --name $alias --function-version $lambda_version --description $build_number --region $aws_region
 fi
+
+
+# Add trigger for alexa skils kit
+# https://forums.developer.amazon.com/questions/3639/does-anyone-know-the-arn-of-the-alexa-event-source.html
+# http://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html
+aws lambda add-permission --function-name $lambda_name --qualifier $alias --statement-id 1 --action lambda:invokeFunction --principal alexa-appkit.amazon.com --region $aws_region
