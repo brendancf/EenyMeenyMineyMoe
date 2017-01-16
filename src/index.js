@@ -28,6 +28,8 @@ var APP_ID = null;//"amzn1.ask.skill.6603d900-c66c-41e9-8435-e95954a07ee5";
  */
 var AlexaSkill = require('./AlexaSkill');
 
+const eenyMeenyMineyMoe = require('./eenyMeenyMineyMoe');
+
 const languageStrings = {
     'en-US': {
         translation: {
@@ -94,41 +96,22 @@ function giveExample(intent, sessions, response) {
 }
 
 function chooseEntity(intent, session, response) {
+    var chosen = eenyMeenyMineyMoe.choose(intent);
 
-    var peopleSlots = ['NameOne', 'NameTwo', 'NameThree', 'NameFour'];
-    var people = [];
-
-    for (var i=0; i < peopleSlots.length; ++i) {
-        var nameSlot = intent.slots[peopleSlots[i]];
-        if (nameSlot && nameSlot.value) {
-            var name = nameSlot.value;
-
-            console.log(name);
-
-            if (name.endsWith("s")) {
-                name = name.substr(0, name.length - 2);
-            }
-
-            people.push(name);
-        }
-    }
-
-    if (people.length == 0) {
+    if (chosen == null){
         giveExample(intent, session, response);
-        return;
+    } else {
+        // Create speech output
+        var possessiveName = chosen;
+        if (!possessiveName.endsWith('s')) {
+            possessiveName += "'s";
+        }
+
+        return possessiveName;
+
+        const output = `It's ${chosen} turn`;
+        response.tellWithCard(output, "Eeny, meeny, miney, moe", output);
     }
-
-    const personIndex = Math.floor(Math.random() * people.length);
-    const randomPerson = people[personIndex];
-
-    // Create speech output
-    var possessiveName = randomPerson;
-    if (!possessiveName.endsWith('s')) {
-        possessiveName += "'s";
-    }
-
-    const output = "It's " + possessiveName + " turn";
-    response.tellWithCard(output, "Eeny, meeny, miney, moe", output);
 }
 
 // Create the handler that responds to the Alexa Request.
