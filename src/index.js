@@ -78,10 +78,6 @@ EenyMeeny.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest
 EenyMeeny.prototype.intentHandlers = {
     // register custom intent handlers
 
-    'GetNewFactIntent': function (intent, session, response) {
-        chooseEntity(intent, session, response);
-    },
-
     'ChooseName': function (intent, session, response) {
         chooseEntity(intent, session, response);
     },
