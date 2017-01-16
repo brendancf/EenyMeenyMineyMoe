@@ -84,8 +84,8 @@ describe('Eeny Meeny Miney Moe integration tests', () => {
                     const payload = JSON.parse(data.Payload);
                     //console.log(payload);
                     var response = payload.response;
-                    expect(response.outputSpeech.text).to.contains("It's");
-                    expect(response.outputSpeech.text).to.contains("turn");
+                    expect(response.outputSpeech.ssml).to.contains("It's");
+                    expect(response.outputSpeech.ssml).to.contains("turn");
                     expect(response.card.title).to.eql("Eeny, meeny, miney, moe");
                     done();
                 })
