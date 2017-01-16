@@ -34,7 +34,7 @@ var handlers = {
                 possessiveName += "'s";
             }
 
-            const output = `Eeny meeny miney moe catch a tiger by the toe, if he hollars let him go eeny miney miney moe. It's ${possessiveName} turn`;
+            const output = `Eeny meeny miney moe catch a tiger by the toe, if he hollars let him go, eeny meeny miney moe. It's ${possessiveName} turn`;
             this.emit(':tellWithCard', output, this.t('SKILL_NAME'), output);
         }
     },

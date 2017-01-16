@@ -77,7 +77,7 @@ function callEenyMeenyLambda() {
 
 describe('Eeny Meeny Miney Moe integration tests', () => {
 
-    it('Returns Sierra or Teddy', done => {
+    it('Is success', done => {
         callEenyMeenyLambda()
                 .then(data => {
                     expect(data.StatusCode).to.eql(200);
