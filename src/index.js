@@ -107,9 +107,7 @@ function chooseEntity(intent, session, response) {
             possessiveName += "'s";
         }
 
-        return possessiveName;
-
-        const output = `It's ${chosen} turn`;
+        const output = `It's ${possessiveName} turn`;
         response.tellWithCard(output, "Eeny, meeny, miney, moe", output);
     }
 }
