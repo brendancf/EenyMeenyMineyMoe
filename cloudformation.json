@@ -4,7 +4,7 @@
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "FunctionName": "EenyMeenyMineyMoe",
-        "Handler": "index.handler",
+        "Handler": "src/index.handler",
         "Role": "arn:aws:iam::480212055422:role/service-role/EenyMeeny",
         "Code": {
           "ZipFile": { "Fn::Join": ["\n", [
