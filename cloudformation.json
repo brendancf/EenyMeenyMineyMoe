@@ -1,0 +1,26 @@
+{
+  "Resources": {
+    "EenyMeenyMineyMoeFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "EenyMeenyMineyMoe",
+        "Handler": "index.handler",
+        "Role": "arn:aws:iam::480212055422:role/service-role/EenyMeeny",
+        "Code": {
+          "ZipFile": { "Fn::Join": ["\n", [
+            "'use strict';",
+            "",
+            "// Initial Echo Lambda",
+            "exports.handler = (event, context) => {",
+            "  console.log('Event:', JSON.stringify(event));",
+            "  context.succeed(event);",
+            "};"
+          ]]}
+        },
+        "Runtime": "nodejs4.3",
+        "MemorySize": 128,
+        "Timeout": 3
+      }
+    }
+  }
+}

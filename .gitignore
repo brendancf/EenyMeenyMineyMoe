@@ -49,3 +49,10 @@ Temporary Items
 
 .idea/*
 src/lambda.zip
+
+npm-debug.log
+xunit-itest.xml
+xunit-test.xml
+
+target/*
+deploy-scripts/awscli-bundle.zip
